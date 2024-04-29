@@ -162,7 +162,8 @@ blacklist = [
     "com.mattjakeman.ExtensionManager",
     "im.dino",
     "avahi",
-    "url"
+    "url",
+    "mpv"
 ]
 
 def sortapps(appfiles):
