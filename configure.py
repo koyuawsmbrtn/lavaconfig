@@ -36,7 +36,8 @@ def getappexec(appfile):
     overrides = {
         "mullvad": "mullvad-vpn",
         "gnome-terminal": "gnome-terminal",
-        "libreoffice": "libreoffice"
+        "libreoffice": "libreoffice",
+        "spotify": "spotify"
     }
     with open(appfile, "r") as file:
         for line in file:
