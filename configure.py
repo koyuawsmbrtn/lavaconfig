@@ -171,7 +171,9 @@ blacklist = [
 
 def writecustomapps():
     customapps = {
-        "ani-cli": ["gnome-terminal -e ani-cli", "/home/koyu/lavaconfig/icons/ani-cli.png"]
+        "ani-cli": ["gnome-terminal -e ani-cli", "/home/koyu/lavaconfig/icons/ani-cli.png"],
+        "profanity": ["gnome-terminal -e profanity", "/home/koyu/lavaconfig/icons/profanity.png"],
+        "neomutt": ["gnome-terminal -e neomutt", "/home/koyu/lavaconfig/icons/neomutt.png"],
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
