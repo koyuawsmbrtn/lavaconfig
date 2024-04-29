@@ -166,7 +166,8 @@ blacklist = [
     "url",
     "mpv",
     "bitwarden",
-    "code"
+    "code",
+    "system-config-printer"
 ]
 
 def writecustomapps():
@@ -198,6 +199,7 @@ writeheader()
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
+        print(appfile)
 writecustomapps()
 if os.path.exists(appspath+"code.desktop"):
     createbutton(appspath+"code.desktop")
