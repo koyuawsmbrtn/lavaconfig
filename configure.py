@@ -37,7 +37,7 @@ def getappexec(appfile):
         "mullvad": "mullvad-vpn",
         "gnome-terminal": "gnome-terminal",
         "libreoffice": "libreoffice",
-        "spotify": "spotify --no-zygote",
+        "spotify": "gnome-terminal -e spotify-client",
     }
     with open(appfile, "r") as file:
         for line in file:
