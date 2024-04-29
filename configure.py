@@ -164,8 +164,21 @@ blacklist = [
     "im.dino",
     "avahi",
     "url",
-    "mpv"
+    "mpv",
+    "bitwarden",
+    "code"
 ]
+
+def writecustomapps():
+    customapps = {
+        "ani-cli": ["gnome-terminal -e ani-cli", "/home/koyu/lavaconfig/icons/ani-cli.png"]
+    }
+    for app in customapps:
+        with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
+            file.write("button\n{\n")
+            file.write("image-path = "+customapps[app][1]+";\n")
+            file.write("command = "+customapps[app][0]+";\n")
+            file.write("}\n\n")
 
 def sortapps(appfiles):
     sortedapps = []
@@ -182,6 +195,9 @@ writeheader()
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
+writecustomapps()
+if os.path.exists(appspath+"code.desktop"):
+    createbutton(appspath+"code.desktop")
 if os.path.exists(appspath+"org.gnome.Terminal.desktop"):
     createbutton(appspath+"org.gnome.Terminal.desktop")
 writefooter()
