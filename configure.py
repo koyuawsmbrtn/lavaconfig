@@ -117,9 +117,9 @@ sortcategories = [
     "Multimedia",
     "Education",
     "Game",
+    "Audio",
     "Utility",
-    "Development",
-    "Audio"
+    "Development"
 ]
 
 def getcategory(appfile):
