@@ -33,6 +33,11 @@ for file in os.listdir(appspath):
 
 def getappexec(appfile):
     exec = ""
+    overrides = {
+        "mullvad": "mullvad-vpn",
+        "gnome-terminal": "gnome-terminal",
+        "libreoffice": "libreoffice"
+    }
     with open(appfile, "r") as file:
         for line in file:
             if line.startswith("Exec="):
@@ -42,6 +47,9 @@ def getappexec(appfile):
         exec = exec.replace(" "+c, "")
     exec = exec.replace("\n", "")
     exec = exec.replace("\"", "")
+    for override in overrides:
+        if override in exec:
+            exec = overrides[override]
     return exec
 
 def getappicon(appfile):
@@ -160,8 +168,11 @@ def sortapps(appfiles):
     sortedapps = []
     for category in sortcategories:
         for appfile in appfiles:
-            if category in getcategory(appfile):
+            if category in getcategory(appfile) and "libreoffice" not in appfile:
                 sortedapps.append(appfile)
+        if category == "Office":
+            if os.path.exists(appspath+"libreoffice-startcenter.desktop"):
+                sortedapps.append(appspath+"libreoffice-startcenter.desktop")
     return sortedapps
 
 writeheader()
