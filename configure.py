@@ -38,6 +38,7 @@ def getappexec(appfile):
         "gnome-terminal": "gnome-terminal",
         "libreoffice": "libreoffice",
         "spotify": "gnome-terminal -e spotify-client",
+        "amfora": "gnome-terminal -e amfora"
     }
     with open(appfile, "r") as file:
         for line in file:
@@ -142,7 +143,6 @@ blacklist = [
     "org.gnome",
     "vim",
     "htop",
-    "amfora",
     "hplip",
     "org.kde",
     "nm",
