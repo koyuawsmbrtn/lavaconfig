@@ -148,7 +148,6 @@ blacklist = [
     "nm",
     "java",
     "gcr",
-    "gparted",
     "electron",
     "bssh",
     "bvnc",
