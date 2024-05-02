@@ -176,6 +176,7 @@ def writecustomapps():
         "profanity": ["gnome-terminal -e profanity", "/home/koyu/lavaconfig/icons/profanity.png"],
         "neomutt": ["gnome-terminal -e neomutt", "/home/koyu/lavaconfig/icons/neomutt.png"],
         "bitwarden": ["google-chrome-stable --app=https://vault.koyu.space", "/home/koyu/lavaconfig/icons/bitwarden.png"],
+        "chatgpt": ["google-chrome-stable --app=https://chat.openai.com", "/home/koyu/lavaconfig/icons/chatgpt.png"]
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
