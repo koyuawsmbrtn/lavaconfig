@@ -78,6 +78,8 @@ def icon2path(icon):
             return "/usr/share/icons/hicolor/256x256/apps/"+icon.replace("\n", "")+".png"
         elif os.path.exists("/usr/share/icons/"+icon.replace("\n", "")+".png"):
             return "/usr/share/icons/"+icon.replace("\n", "")+".png"
+        elif os.path.exists("/var/lib/flatpak/exports/share/icons/hicolor/512x512/apps/"+icon.replace("\n", "")+".png"):
+            return "/var/lib/flatpak/exports/share/icons/hicolor/512x512/apps/"+icon.replace("\n", "")+".png"
         else:
             return "/usr/share/icons/Adwaita/scalable/mimetypes/application-x-executable.svg"
 
@@ -195,11 +197,20 @@ def sortapps(appfiles):
                 sortedapps.append(appspath+"libreoffice-startcenter.desktop")
     return sortedapps
 
+def getsystemflatpaks():
+    systemflatpaks = []
+    if os.path.exists("/var/lib/flatpak/exports/share/applications"):
+        for file in os.listdir("/var/lib/flatpak/exports/share/applications"):
+            if file.endswith(".desktop"):
+                systemflatpaks.append("/var/lib/flatpak/exports/share/applications/"+file)
+    return systemflatpaks
+
 writeheader()
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
-        print(appfile)
+for flatpak in getsystemflatpaks():
+    createbutton(flatpak)
 writecustomapps()
 if os.path.exists(appspath+"code.desktop"):
     createbutton(appspath+"code.desktop")
