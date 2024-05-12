@@ -44,7 +44,7 @@ def getappexec(appfile):
         for line in file:
             if line.startswith("Exec="):
                 exec = line[5:]
-    clean = ["%U", "%u", "%F", "%f", "%k", "%c", "%i", "%d", "%D", "%n", "%N", "%m", "%v", "%w", "--new-tab", "--new-window", "--open-url", "--incognito"]
+    clean = ["%U", "%u", "%F", "%f", "%k", "%c", "%i", "%d", "%D", "%n", "%N", "%m", "%v", "%w", "--new-tab", "--new-window", "--open-url", "--incognito", "--ProfileManager"]
     for c in clean:
         exec = exec.replace(" "+c, "")
     exec = exec.replace("\n", "")
@@ -169,7 +169,10 @@ blacklist = [
     "bitwarden",
     "code",
     "system-config-printer",
-    "cups"
+    "cups",
+    "firefox",
+    "chrom",
+    "brave"
 ]
 
 def writecustomapps():
@@ -206,7 +209,22 @@ def getsystemflatpaks():
                 systemflatpaks.append("/var/lib/flatpak/exports/share/applications/"+file)
     return systemflatpaks
 
+def isinstalled(app):
+    isinstalled = False
+    for appfile in appfiles:
+        if app in appfile:
+            isinstalled = True
+    return isinstalled
+
 writeheader()
+if isinstalled("firefox"):
+    createbutton(appspath+"firefox.desktop")
+if isinstalled("chromium"):
+    createbutton(appspath+"chromium.desktop")
+if isinstalled("brave"):
+    createbutton(appspath+"brave-browser.desktop")
+if isinstalled("google-chrome-stable"):
+    createbutton(appspath+"google-chrome-stable.desktop")
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
