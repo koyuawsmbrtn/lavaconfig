@@ -223,8 +223,8 @@ if isinstalled("chromium"):
     createbutton(appspath+"chromium.desktop")
 if isinstalled("brave"):
     createbutton(appspath+"brave-browser.desktop")
-if isinstalled("google-chrome-stable"):
-    createbutton(appspath+"google-chrome-stable.desktop")
+if isinstalled("google-chrome"):
+    createbutton(appspath+"google-chrome.desktop")
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
