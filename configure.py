@@ -188,15 +188,16 @@ blacklist = [
 
 def writecustomapps():
     customapps = {
-        "ani-cli": ["gnome-terminal -e ani-cli", "/home/koyu/lavaconfig/icons/ani-cli.png"],
-        "neomutt": ["gnome-terminal -e neomutt", "/home/koyu/lavaconfig/icons/neomutt.png"],
-        "bitwarden": ["google-chrome-stable --app=https://vault.koyu.space", "/home/koyu/lavaconfig/icons/bitwarden.png"],
-        "whatsapp": ["google-chrome-stable --app=https://web.whatsapp.com", "/home/koyu/lavaconfig/icons/whatsapp.png"]
+        "keep": ["google-chrome-stable --app=https://keep.google.com", "keep"],
+        "ani-cli": ["gnome-terminal -e ani-cli", "ani-cli"],
+        "neomutt": ["gnome-terminal -e neomutt", "neomutt"],
+        "bitwarden": ["google-chrome-stable --app=https://vault.koyu.space", "bitwarden"],
+        "whatsapp": ["google-chrome-stable --app=https://web.whatsapp.com", "whatsapp"]
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
             file.write("button\n{\n")
-            file.write("image-path = "+customapps[app][1]+";\n")
+            file.write("image-path = /home/koyu/lavaconfig/icons/"+customapps[app][1]+".png;\n")
             file.write("command = "+customapps[app][0]+";\n")
             file.write("}\n\n")
 
