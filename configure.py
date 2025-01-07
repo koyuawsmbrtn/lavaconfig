@@ -187,7 +187,8 @@ blacklist = [
     "zen-beta",
     "yubico",
     "chatterino",
-    "waydroid"
+    "waydroid",
+    "mcpe"
 ]
 
 def writecustomapps():
