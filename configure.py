@@ -44,7 +44,7 @@ def getappexec(appfile):
         for line in file:
             if line.startswith("Exec="):
                 exec = line[5:]
-    clean = ["%U", "%u", "%F", "%f", "%k", "%c", "%i", "%d", "%D", "%n", "%N", "%m", "%v", "%w", "--new-tab", "--new-window", "--open-url", "--incognito", "--ProfileManager"]
+    clean = ["%U", "%u", "%F", "%f", "%k", "%c", "%i", "%d", "%D", "%n", "%N", "%m", "%v", "%w", "--new-tab", "--new-window", "--open-url", "--incognito", "--ProfileManager", "--", "-quit"]
     for c in clean:
         exec = exec.replace(" "+c, "")
     exec = exec.replace("\n", "")
@@ -172,13 +172,23 @@ blacklist = [
     "cups",
     "firefox",
     "chrom",
-    "brave"
+    "brave",
+    "foot",
+    "btop",
+    "sm64",
+    "openttd",
+    "xfce",
+    "steam",
+    "transmission",
+    "chrome",
+    "signal-tray",
+    "notion",
+    "zen-beta"
 ]
 
 def writecustomapps():
     customapps = {
         "ani-cli": ["gnome-terminal -e ani-cli", "/home/koyu/lavaconfig/icons/ani-cli.png"],
-        "profanity": ["gnome-terminal -e profanity", "/home/koyu/lavaconfig/icons/profanity.png"],
         "neomutt": ["gnome-terminal -e neomutt", "/home/koyu/lavaconfig/icons/neomutt.png"],
         "bitwarden": ["google-chrome-stable --app=https://vault.koyu.space", "/home/koyu/lavaconfig/icons/bitwarden.png"],
         "whatsapp": ["google-chrome-stable --app=https://web.whatsapp.com", "/home/koyu/lavaconfig/icons/whatsapp.png"]
@@ -223,8 +233,10 @@ if isinstalled("chromium"):
     createbutton(appspath+"chromium.desktop")
 if isinstalled("brave"):
     createbutton(appspath+"brave-browser.desktop")
-if isinstalled("google-chrome"):
-    createbutton(appspath+"google-chrome.desktop")
+#if isinstalled("google-chrome"):
+#    createbutton(appspath+"google-chrome.desktop")
+if isinstalled("zen-beta"):
+     createbutton(appspath+"zen-beta.desktop")
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
