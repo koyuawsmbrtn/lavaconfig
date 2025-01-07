@@ -38,7 +38,8 @@ def getappexec(appfile):
         "gnome-terminal": "gnome-terminal",
         "libreoffice": "libreoffice",
         "spotify": "gnome-terminal -e spotify-client",
-        "amfora": "gnome-terminal -e amfora"
+        "amfora": "gnome-terminal -e amfora",
+        "vlc": "vlc"
     }
     with open(appfile, "r") as file:
         for line in file:
