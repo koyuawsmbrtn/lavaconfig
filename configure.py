@@ -184,7 +184,9 @@ blacklist = [
     "chrome",
     "signal-tray",
     "notion",
-    "zen-beta"
+    "zen-beta",
+    "yubico",
+    "chatterino"
 ]
 
 def writecustomapps():
