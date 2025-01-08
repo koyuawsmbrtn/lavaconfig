@@ -188,7 +188,9 @@ blacklist = [
     "yubico",
     "chatterino",
     "waydroid",
-    "mcpe"
+    "mcpe",
+    "byobu",
+    "xlinks"
 ]
 
 def writecustomapps():
