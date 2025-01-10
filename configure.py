@@ -190,7 +190,8 @@ blacklist = [
     "waydroid",
     "mcpe",
     "byobu",
-    "links"
+    "links",
+    "galculator"
 ]
 
 def writecustomapps():
