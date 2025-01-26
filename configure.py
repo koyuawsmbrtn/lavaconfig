@@ -94,6 +94,15 @@ def createbutton(appfile):
         file.write("command = "+appexec+";\n")
         file.write("}\n\n")
 
+def create_custom(appfile, appexec):
+    appicon = getappicon(appfile)
+    iconpath = icon2path(appicon)
+    with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
+        file.write("button\n{\n")
+        file.write("image-path = "+iconpath+";\n")
+        file.write("command = "+appexec+";\n")
+        file.write("}\n\n")
+
 def writeheader():
     with open(home+"/.config/lavalauncher/lavalauncher", "w") as file:
         file.write("global-settings\n{\n")
@@ -191,7 +200,7 @@ blacklist = [
     "byobu",
     "links",
     "galculator",
-    "scrcpy-console"
+    "scrcpy"
 ]
 
 def writecustomapps():
@@ -247,6 +256,8 @@ if isinstalled("zen"):
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
+if isinstalled("scrcpy"):
+    create_custom(appspath+"scrcpy.desktop", "scrcpy")
 for flatpak in getsystemflatpaks():
     createbutton(flatpak)
 writecustomapps()
