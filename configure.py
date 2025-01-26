@@ -190,7 +190,8 @@ blacklist = [
     "mcpe",
     "byobu",
     "links",
-    "galculator"
+    "galculator",
+    "scrcpy-console"
 ]
 
 def writecustomapps():
