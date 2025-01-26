@@ -179,12 +179,11 @@ blacklist = [
     "sm64",
     "openttd",
     "xfce",
-    "steam",
     "transmission",
     "chrome",
     "signal-tray",
     "notion",
-    "zen-beta",
+    "zen",
     "yubico",
     "chatterino",
     "waydroid",
@@ -199,7 +198,6 @@ def writecustomapps():
         "keep": ["google-chrome-stable --app=https://keep.google.com", "keep"],
         "ani-cli": ["gnome-terminal -e ani-cli", "ani-cli"],
         "neomutt": ["gnome-terminal -e neomutt", "neomutt"],
-        "gomuks": ["gnome-terminal -e gomuks", "gomuks"]
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
@@ -243,8 +241,8 @@ if isinstalled("brave"):
     createbutton(appspath+"brave-browser.desktop")
 #if isinstalled("google-chrome"):
 #    createbutton(appspath+"google-chrome.desktop")
-if isinstalled("zen-beta"):
-     createbutton(appspath+"zen-beta.desktop")
+if isinstalled("zen"):
+     createbutton(appspath+"zen.desktop")
 for appfile in sortapps(appfiles):
     if not any(bl in appfile for bl in blacklist):
         createbutton(appfile)
