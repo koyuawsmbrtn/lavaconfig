@@ -208,6 +208,7 @@ def writecustomapps():
         "keep": ["google-chrome-stable --app=https://keep.google.com", "keep"],
         "ani-cli": ["gnome-terminal -e ani-cli", "ani-cli"],
         "neomutt": ["gnome-terminal -e neomutt", "neomutt"],
+        "anrufbeantworter": ["sh -c \"cd ~/ab && ./gui.pyw\"", "anrufbeantworter"]
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
