@@ -204,7 +204,8 @@ blacklist = [
     "links",
     "galculator",
     "scrcpy",
-    "virtualbox"
+    "virtualbox",
+    "amfora"
 ]
 
 def writecustomapps():
