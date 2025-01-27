@@ -94,9 +94,12 @@ def createbutton(appfile):
         file.write("command = "+appexec+";\n")
         file.write("}\n\n")
 
-def create_custom(appfile, appexec):
+def create_custom(appfile, appexec, icon=""):
     appicon = getappicon(appfile)
-    iconpath = icon2path(appicon)
+    if icon == "":
+        iconpath = icon2path(appicon)
+    else:
+        iconpath = home+"/lavaconfig/icons/"+icon+".png"
     with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
         file.write("button\n{\n")
         file.write("image-path = "+iconpath+";\n")
@@ -200,7 +203,8 @@ blacklist = [
     "byobu",
     "links",
     "galculator",
-    "scrcpy"
+    "scrcpy",
+    "virtualbox"
 ]
 
 def writecustomapps():
@@ -259,6 +263,8 @@ for appfile in sortapps(appfiles):
         createbutton(appfile)
 if isinstalled("scrcpy"):
     create_custom(appspath+"scrcpy.desktop", "scrcpy")
+if isinstalled("virtualbox"):
+    create_custom(appspath+"virtualbox.desktop", "virtualbox", "virtualbox")
 for flatpak in getsystemflatpaks():
     createbutton(flatpak)
 writecustomapps()
