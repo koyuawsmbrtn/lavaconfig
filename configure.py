@@ -37,7 +37,7 @@ def getappexec(appfile):
         "mullvad": "mullvad-vpn",
         "gnome-terminal": "gnome-terminal",
         "libreoffice": "libreoffice",
-        "spotify": "gnome-terminal -e spotify-client",
+        "spotify": "gnome-terminal -e spotify_player",
         "amfora": "gnome-terminal -e amfora",
         "vlc": "vlc"
     }
