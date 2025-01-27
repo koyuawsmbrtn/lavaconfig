@@ -250,6 +250,7 @@ def isinstalled(app):
     return isinstalled
 
 writeheader()
+create_custom("copilot.desktop", "google-chrome-stable --app=\"https://copilot.microsoft.com/?dpwa=1\"", "copilot")
 if isinstalled("firefox"):
     createbutton(appspath+"firefox.desktop")
 if isinstalled("chromium"):
@@ -265,8 +266,6 @@ for appfile in sortapps(appfiles):
         createbutton(appfile)
 if isinstalled("scrcpy"):
     create_custom(appspath+"scrcpy.desktop", "scrcpy")
-if isinstalled("virtualbox"):
-    create_custom(appspath+"virtualbox.desktop", "virtualbox", "virtualbox")
 for flatpak in getsystemflatpaks():
     createbutton(flatpak)
 writecustomapps()
