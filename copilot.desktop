@@ -1,5 +1,0 @@
-[Desktop Entry]
-Name=Microsoft Copilot
-Exec=google-chrome-stable --app="https://copilot.microsoft.com/?dpwa=1"
-Type=Application
-Terminal=false
