@@ -35,7 +35,7 @@ def getappexec(appfile):
     exec = ""
     overrides = {
         "mullvad": "mullvad-vpn",
-        "gnome-terminal": "gnome-terminal",
+        "gnome-terminal": "kitty",
         "libreoffice": "libreoffice",
         "spotify": "gnome-terminal -e spotify_player",
         "amfora": "gnome-terminal -e amfora",
@@ -206,15 +206,16 @@ blacklist = [
     "scrcpy",
     "virtualbox",
     "amfora",
-    "vlc"
+    "vlc",
+    "elementary",
+    "terminology",
+    "kitty"
 ]
 
 def writecustomapps():
     customapps = {
         "keep": ["google-chrome-stable --app=https://keep.google.com", "keep"],
         "ani-cli": ["gnome-terminal -e ani-cli", "ani-cli"],
-        "neomutt": ["gnome-terminal -e neomutt", "neomutt"],
-        "anrufbeantworter": ["sh -c \"cd ~/ab && ./gui.pyw\"", "anrufbeantworter"]
     }
     for app in customapps:
         with open(home+"/.config/lavalauncher/lavalauncher", "a") as file:
