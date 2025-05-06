@@ -209,12 +209,11 @@ blacklist = [
     "vlc",
     "elementary",
     "terminology",
-    "kitty"
+    "kitty",
 ]
 
 def writecustomapps():
     customapps = {
-        "keep": ["google-chrome-stable --app=https://keep.google.com", "keep"],
         "ani-cli": ["gnome-terminal -e ani-cli", "ani-cli"],
     }
     for app in customapps:
