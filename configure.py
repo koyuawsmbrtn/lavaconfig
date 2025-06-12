@@ -31,6 +31,13 @@ for file in os.listdir(appspath):
             appfiles.append(appspath+file)
         f.close()
 
+for file in os.listdir(home+"/.local/share/applications/"):
+    if file.endswith(".desktop"):
+        f = open(home+"/.local/share/applications/"+file, "r")
+        if validappfile(home+"/.local/share/applications/"+file):
+          appfiles.append(home+"/.local/share/applications/"+file)
+        f.close()
+
 def getappexec(appfile):
     exec = ""
     overrides = {
@@ -38,6 +45,7 @@ def getappexec(appfile):
         "gnome-terminal": "kitty",
         "libreoffice": "libreoffice",
         "spotify": "gnome-terminal -e spotify_player",
+        "inkscape": "env GDK_BACKEND=x11 inkscape",
         "amfora": "gnome-terminal -e amfora",
         "vlc": "vlc"
     }
@@ -153,6 +161,10 @@ def getcategory(appfile):
     return category
 
 blacklist = [
+    "inkscape",
+    "prismlauncher",
+    "ranger",
+    "nnn",
     "freedesktop",
     "gnupg",
     "org.gnome",
@@ -265,6 +277,8 @@ for appfile in sortapps(appfiles):
         createbutton(appfile)
 if isinstalled("scrcpy"):
     create_custom(appspath+"scrcpy.desktop", "scrcpy")
+if isinstalled("inkscape"):
+    create_custom(appspath+"org.inkscape.Inkscape.desktop", "inkscape")
 for flatpak in getsystemflatpaks():
     createbutton(flatpak)
 writecustomapps()
