@@ -161,6 +161,7 @@ def getcategory(appfile):
     return category
 
 blacklist = [
+    "gkbd-keyboard-display",
     "nyxt",
     "inkscape",
     "prismlauncher",
